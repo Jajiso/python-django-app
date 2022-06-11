@@ -4,12 +4,7 @@
 ARG VARIANT="3.15"
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-${VARIANT} 
 
-# ** [Optional] Uncomment this section to install additional packages. **
 RUN apk update \
-    && apk add --no-cache python3 py3-pip openssh 
-    # && pip install "django>=3.2,<3.3" 
-    # && pip install -r requirements.txt
-# WORKDIR /code/
-# RUN cd ..
+    && apk add --no-cache python3 py3-pip 
 COPY requirements.txt code/
 RUN pip install -r code/requirements.txt
